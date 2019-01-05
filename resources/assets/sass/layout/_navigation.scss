@@ -1,0 +1,33 @@
+.navigation {
+    border-bottom: 1px solid rgba($color-grey-light-2, .3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    &__left,
+    &__right {
+        display: flex;
+        list-style: none;
+    }
+
+    &__link {
+        &,
+        &:link,
+        &:visited {
+            color: $color-grey-light-1;
+            font-size: 1.6rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 2rem;
+            transition: all .2s;
+            position: relative;
+        }
+
+        &:hover {
+            color: $color-grey-dark-2;
+            
+        }
+    }
+}
