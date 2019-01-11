@@ -1,10 +1,12 @@
 @extends('partials.jumbotron')
 @section('jumbotron')
-    <div class="search">
-        <input type="text" id="search-box" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton">
+    @include('partials.jumbotron-content.heading-text')
+    <form action="/search" method="POST" id="search-form" class="search">
+        {{csrf_field()}}
+        <input type="text" id="search-box" name="search" class="searchTerm" placeholder="What are you looking for?">
+        <button type="submit" id="search-btn" class="searchButton">
             <i class="fa fa-search"></i>
         </button>
-    </div>
+    </form>
     <a href="#" class="btn btn--primary" style="margin-top: 10px;">Near me</a>
 @endsection

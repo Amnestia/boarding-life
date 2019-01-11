@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LocationType;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -19,6 +20,11 @@ class PageController extends Controller
     }
 
     public function getInsertPage(){
-        return view('insert');
+        return view('insert')->with('types',LocationTypeController::getType());
+    }
+
+    public function getReview($id)
+    {
+        return view('review')->with('review',ReviewController::getReviews($id));
     }
 }

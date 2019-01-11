@@ -18,9 +18,10 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('address');
-            $table->string('type');
             $table->double('longitude');
             $table->double('latitude');
+            $table->unsignedInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('location_types');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 *,
 *::before,
 *::after {
@@ -198,13 +200,33 @@ body {
           filter: brightness(0.9);
 }
 
+.form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 5rem 5rem;
+}
+
+#insert-form {
+  width: 40%;
+}
+
+#review-form {
+  width: 40%;
+}
+
 .form {
   z-index: 2;
   background-color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25%;
+  width: 20%;
   padding: 5rem;
   border-radius: 3px;
   -webkit-transform: translate(-50%, -50%) scale(0);
@@ -270,6 +292,48 @@ body {
 .show-form {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
+}
+
+.custom-select {
+  position: relative;
+  display: block;
+  max-width: 420px;
+  min-width: 420px;
+  height: 3rem;
+  margin: 0 auto;
+  border: 1px solid #3C1C78;
+  z-index: 10;
+}
+
+.custom-select select {
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 12px 55px 15px 15px;
+  font-size: 14px;
+  color: #714BB9;
+}
+
+.custom-select:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  line-height: 38px;
+  content: "\2228";
+  text-align: center;
+  color: #714BB9;
+  font-size: 24px;
+  border-left: 1px solid #3C1C78;
+  z-index: -1;
 }
 
 .popup {
@@ -357,6 +421,19 @@ body {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+#reviews {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #map {

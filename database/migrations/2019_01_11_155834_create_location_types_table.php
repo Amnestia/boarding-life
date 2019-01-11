@@ -16,7 +16,9 @@ class CreateLocationTypesTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('location_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type');
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }

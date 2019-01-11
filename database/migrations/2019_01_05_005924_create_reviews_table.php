@@ -16,8 +16,10 @@ class CreateReviewsTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('location_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->integer('status');
             $table->string('review');
             $table->timestamps();

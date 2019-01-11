@@ -12,5 +12,17 @@ class ReviewSeeder extends Seeder
     public function run()
     {
         //
+        $reviews=[
+            ['user_id'=>1,'location_id'=>1,'status'=> 1,'review'=>'best','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>1,'status'=> 1,'review'=>'best of the best','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>1,'status'=> 1,'review'=>'best of the best','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>1,'location_id'=>1,'status'=>-1,'review'=>'n','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>3,'status'=> 1,'review'=>'o','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>3,'status'=> 1,'review'=>'o','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>3,'status'=> 1,'review'=>'o','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>3,'status'=> 1,'review'=>'o','created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+            ['user_id'=>2,'location_id'=>2,'status'=>-1,'review'=>":!",'created_at'=>date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')],
+        ];
+        \App\Review::insert($reviews);
     }
 }

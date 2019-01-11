@@ -1,6 +1,5 @@
 @extends("partials.master")
 @section('content')
-    <div id="map">
-
-    </div>
+    @include('partials.jumbotron-content.insert-jumbotron')
+    @include('partials.insert-form')
 @endsection

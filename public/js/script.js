@@ -48,14 +48,37 @@ $(document).ready(()=>{
         registerForm.classList.remove('show-form');
     });
 
-    function showHide(toShow, toHide)
-    {
-        $(toShow).show();
-        $(toHide).hide();
+    $("#insert-form").on('submit',function(e){
+        console.log("asd");
+        e.preventDefault();
+        geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('name').value;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status === 'OK') {
+                console.log(results);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+        var mapOptions = {
+            zoom: 8,
+            center: latlng
+        };
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+    });
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+            }
+        }
     }
 
-    function setErrorMessage(errMessageComponent,errMessage)
-    {
-        $(errMessageComponent).addClass("err-message").html(errMessage);
-    }
+
 });

@@ -17,11 +17,16 @@ Route::get('/collection', 'PageController@getCollection');
 
 Route::get('/search', 'PageController@getSearchPage');
 
-Route::get('/insert','PageController@getInsertPage');
+Route::get('/insert','PageController@getInsertPage')->middleware('user');
+
+Route::post('/insert','LocationController@insert')->middleware('user');
 
 Route::post('/register','UserController@register');
 
 Route::post('/login','UserController@signIn');
 
-Route::get('/logout','UserController@signOut');
+Route::get('/logout','UserController@signOut')->middleware('user');
 
+Route::post('/search','LocationController@searchLocation');
+
+Route::get('/review/{id}','PageController@getReview');

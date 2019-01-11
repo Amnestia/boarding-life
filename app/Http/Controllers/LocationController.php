@@ -3,83 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Location;
+use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LocationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function searchLocation(Request $request)
     {
-        //
+        $word=$request->search;
+        $locations=Location::whereNull('deleted_at')->where(function($query) use ($word){
+           $query->orWhere('name','like',"%".$word."%")
+                 ->orWhere('address','like','%'.$word.'%');
+        })->whereHas('review',function($query){
+        $query->selectRaw('SUM(reviews.status) AS status')->orderBy('status','desc');
+        })->get();
+        $locations->each(function($found){
+            $found['negative']=Review::where('location_id','=',$found->id)->where('status','=',-1)->sum('status');
+            $found['positive']=Review::where('location_id','=',$found->id)->where('status','=',1)->sum('status');
+            $found['count']=$found['negative']+$found['positive'];
+            if($found['negative']<0)
+            $found['negative']*=-1;
+        });
+        $locations=$locations->sortByDesc('count');
+        return view('/search')->with('results',$locations);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function newLocation(Request $request)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Location $location)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Location $location)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Location $location)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Location $location)
-    {
-        //
     }
 }
