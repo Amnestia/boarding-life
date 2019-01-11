@@ -1,6 +1,6 @@
 <div class="popup" id="popup-register">
     <div class="popup__background" id="background-register"></div>
-    <form method="POST" class="form" id="register-form">
+    <form action="/register" method="POST" class="form" id="register-form">
         {{csrf_field()}}
         <h3 class="heading-tertiary">Sign up to Boarding Life</h3>
         <div class="form__group">
@@ -20,13 +20,14 @@
 
         <div class="form__group">
             <label for="confirm_password" class="form__label">Confirm Password</label>
-            <input type="password" class="form__field" id="confirm_password" name="confirm_password" placeholder="ex: flyingcat101" required>
+            <input type="password" class="form__field" id="password_confirmation" name="password_confirmation" placeholder="ex: flyingcat101" required>
         </div>
 
+        @if($errors->any() && $errors->first()!='login')
         <div class="form__group">
-            <div id="error-message"></div>
+            <div class="err-message">{{$errors->first()}}</div>
         </div>
-
+        @endif
         <div class="form__group">
             <input type="submit" id="btn-register" class="form__submit" value="Register">
         </div>

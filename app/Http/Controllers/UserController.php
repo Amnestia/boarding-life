@@ -17,7 +17,7 @@ class UserController extends Controller
      *
      * @param \Illuminate\Http\Request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     function register(Request $req)
     {
@@ -31,10 +31,7 @@ class UserController extends Controller
         $validator=Validator::make($input,$rules);
         if($validator->fails())
         {
-            return response()->json([
-               'status'=>1,
-               'errors'=>$validator->getMessageBag()->toArray(),
-            ]);
+            return redirect()->back()->withErrors($validator->errors());
         }
 
         $user = new User();
@@ -43,10 +40,7 @@ class UserController extends Controller
         $user->password=bcrypt($req->password);
         $user->save();
 
-        return response()->json([
-            'status'=>0,
-            'message'=>'Success'
-        ]);
+        return redirect('/');
     }
 
     /**
@@ -54,7 +48,7 @@ class UserController extends Controller
      *
      * @param \Illuminate\Http\Request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     function signIn(Request $req)
@@ -68,19 +62,13 @@ class UserController extends Controller
 
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
-            return response()->json([
-                'status' => 1,
-                'errors' => $validator->getMessageBag()->toArray(),
-            ]);
+            return redirect()->back()->withErrors($validator->errors());
         }
 
         if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             return redirect('/');
         } else {
-            return response()->json([
-                'status' => 2,
-                'errors' => 'Email or Password could be wrong!'
-            ]);
+            return redirect()->back()->withErrors(['login','Wrong email or password']);
         }
     }
 

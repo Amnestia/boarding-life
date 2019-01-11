@@ -31,11 +31,15 @@
                 </li>
             </ul>
         </div>
-    </footer>
+    </footer>p
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
+    </script>
+    <script src="{{URL::asset('js/map.js')}}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt4IOuqixmQgv0D_t1LEumNze1eVlN9sY&callback=initMap"
+            type="text/javascript">
     </script>
     <script src="{{URL::asset('js/script.js')}}"></script>
     </body>

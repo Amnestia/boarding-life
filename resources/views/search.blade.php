@@ -1,4 +1,7 @@
 @extends("partials.master")
 @section('content')
-    <input type="text" id="search-box" placeholder="ex: Bunis">
+    @include('partials.jumbotron-content.search-jumbotron')
+    <div id="search-result">
+
+    </div>
 @endsection

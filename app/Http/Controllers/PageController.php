@@ -17,4 +17,8 @@ class PageController extends Controller
     public function getSearchPage() {
         return view('search');
     }
+
+    public function getInsertPage(){
+        return view('insert');
+    }
 }

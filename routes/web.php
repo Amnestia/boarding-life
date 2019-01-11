@@ -17,8 +17,11 @@ Route::get('/collection', 'PageController@getCollection');
 
 Route::get('/search', 'PageController@getSearchPage');
 
+Route::get('/insert','PageController@getInsertPage');
+
 Route::post('/register','UserController@register');
 
 Route::post('/login','UserController@signIn');
 
 Route::get('/logout','UserController@signOut');
+

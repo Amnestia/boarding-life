@@ -297,6 +297,73 @@ body {
   opacity: 1;
 }
 
+.err-message {
+  border: 0px;
+  width: 100%;
+  height: 20px;
+  font-size: 12px;
+  color: white;
+  background-color: #f24343;
+}
+
+.success-message {
+  border: 0px;
+  width: 100%;
+  height: 20px;
+  color: white;
+  background-color: #52f26a;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 1px solid #00B4CC;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus {
+  color: black;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+.wrap {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#map {
+  width: 500px;
+  height: 200px;
+}
+
 .header {
   height: 100vh;
   background-size: cover;
@@ -306,6 +373,7 @@ body {
 }
 
 .header__text-box {
+  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -431,20 +499,3 @@ body {
   padding: 0 0 10rem 0;
 }
 
-.err-message {
-  border: 0px;
-  width: 100%;
-  height: 20px;
-  font-size: 12px;
-  color: white;
-  background-color: #f24343;
-}
-
-.success-message {
-  border: 0px;
-  width: 100%;
-  height: 20px;
-  color: white;
-  background-color: #52f26a;
-
-}
