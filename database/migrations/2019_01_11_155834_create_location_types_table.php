@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReviewDetailsTable extends Migration
+class CreateLocationTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateReviewDetailsTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('review_details', function (Blueprint $table) {
+        Schema::create('location_types', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -29,7 +29,7 @@ class CreateReviewDetailsTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('review_details');
+        Schema::dropIfExists('location_types');
         Schema::enableForeignKeyConstraints();
     }
 }

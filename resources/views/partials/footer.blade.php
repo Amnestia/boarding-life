@@ -38,9 +38,6 @@
             crossorigin="anonymous">
     </script>
     <script src="{{URL::asset('js/map.js')}}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt4IOuqixmQgv0D_t1LEumNze1eVlN9sY"
-            type="text/javascript">
-    </script>
     <script src="{{URL::asset('js/script.js')}}"></script>
     </body>
 </html>

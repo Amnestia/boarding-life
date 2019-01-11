@@ -13,7 +13,7 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraint();
+        Schema::disableForeignKeyConstraints();
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -24,7 +24,7 @@ class CreateLocationsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::enableForeignKeyConstraint();
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -34,8 +34,8 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraint();
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('locations');
-        Schema::enableForeignKeyConstraint();
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -16,7 +16,12 @@ class CreateReviewsTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('location_id');
+            $table->integer('status');
+            $table->string('review');
             $table->timestamps();
+            $table->softDeletes();
         });
         Schema::enableForeignKeyConstraints();
     }
