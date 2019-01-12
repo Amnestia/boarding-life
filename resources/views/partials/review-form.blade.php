@@ -11,6 +11,11 @@
                 <input type="radio" name="status" id="review-good" value="1" required><i class="fa fa-thumbs-up"  style="font-size: 12px">Good</i>
                 <input type="radio" name="status" id="review-bad" value="-1"><i class="fa fa-thumbs-down" style="font-size: 12px">Bad</i>
             </div>
+            @if($errors->any() && $errors->first()!='login')
+                <div class="form__group">
+                    <div class="err-message">{{$errors->first()}}</div>
+                </div>
+            @endif
             <div class="form__group">
                 <input type="submit" id="btn-submit" class="form__submit" value="Submit">
             </div>

@@ -27,7 +27,7 @@ Route::post('/login','UserController@signIn');
 
 Route::get('/logout','UserController@signOut')->middleware('user');
 
-Route::post('/search','LocationController@searchLocation');
+Route::get('/search/{page}','LocationController@searchLocation');
 
 Route::get('/review/{id}','PageController@getReview');
 

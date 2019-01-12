@@ -13,9 +13,9 @@
             <input type="password" class="form__field" id="password" name="password" placeholder="ex: flyingcat101" required>
         </div>
 
-        @if($errors->any($errors->first()=='login'))
+        @if($errors->any() && $errors->first()=='login')
         <div class="form__group">
-            <div class="err-message">{{$errors->all()[1]}}</div>
+            <div class="err-message">@isset($errors->all()[1]){{$errors->all()[1]}}@endisset</div>
         </div>
         @endif
 

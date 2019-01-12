@@ -24,7 +24,7 @@ class UserController extends Controller
         $rules=[
             'name'=>'required',
             'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
+            'password'=>'required|min:6|confirmed|nullable'
         ];
 
         $input=Input::only('name','email','password','password_confirmation');
@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         $rules = [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|nullable'
         ];
 
         $input = Input::only('email', 'password');

@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Location;
 use App\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class LocationController extends Controller
 {
-    public function searchLocation(Request $request)
+    public function searchLocation(Request $request,$page)
     {
         $word=$request->search;
         $locations=Location::whereNull('deleted_at')->where(function($query) use ($word){
@@ -25,8 +24,13 @@ class LocationController extends Controller
             if($found['negative']<0)
             $found['negative']*=-1;
         });
-        $locations=$locations->sortByDesc('count');
-        return view('/search')->with('results',$locations);
+        $totalPage=ceil(sizeof($locations)/3);
+        if($totalPage<$page)
+            return redirect()->back();
+        $ret=$locations->sortByDesc('count')->forPage($page,3);
+        $ret['totalPage']=$totalPage;
+        $ret['currPage']=$page;
+        return view('/search')->with('results',$ret);
     }
 
     public function newLocation(Request $request)
