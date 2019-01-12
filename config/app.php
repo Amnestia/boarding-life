@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => 'https://git.heroku.com/glacial-woodland-39896.git',
 
     'cipher' => 'AES-256-CBC',
 
