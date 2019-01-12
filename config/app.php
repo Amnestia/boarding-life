@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => 'https://git.heroku.com/glacial-woodland-39896.git',
+    'key' => 'jyao4M/sUwZW5E3p6r32g8EDRlEl3ZPWEgJJ2Egu0es=',
 
     'cipher' => 'AES-256-CBC',
 
