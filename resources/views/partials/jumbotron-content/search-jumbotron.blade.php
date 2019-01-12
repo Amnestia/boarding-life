@@ -8,5 +8,5 @@
             <i class="fa fa-search"></i>
         </button>
     </form>
-    <a href="#" class="btn btn--primary" style="margin-top: 10px;">Near me</a>
+    {{--<a href="#" class="btn btn--primary" style="margin-top: 10px;">Near me</a>--}}
 @endsection

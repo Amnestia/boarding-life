@@ -12,9 +12,9 @@
             <a class="navigation__link" href="/search">Search</a>
         </li>
         @if(auth()->user())
-            <li class="navigation__item">
-                <a class="navigation__link" id="navigation__logout" href="/insert">Insert </a>
-            </li>
+            {{--<li class="navigation__item">--}}
+                {{--<a class="navigation__link" id="navigation__logout" href="/insert">Insert </a>--}}
+            {{--</li>--}}
             <li class="navigation__item">
                 <a class="navigation__link" id="navigation__logout" href="/logout">Logout</a>
             </li>
