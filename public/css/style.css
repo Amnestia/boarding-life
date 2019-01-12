@@ -568,6 +568,14 @@ body {
   color: #55c57a;
 }
 
+.review-block {
+  overflow: auto;
+  text-align: left;
+  font-size: 12px;
+  color: black;
+  height: 400px;
+}
+
 .section-food {
   padding: 10rem 0;
 }

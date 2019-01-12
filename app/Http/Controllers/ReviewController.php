@@ -15,4 +15,15 @@ class ReviewController extends Controller
         return $review;
     }
 
+    public function newReview(Request $req, $id)
+    {
+        $review=new Review();
+        $review->user_id=auth()->id();
+        $review->location_id=$id;
+        $review->review=$req->review;
+        $review->status=$req->status;
+        $review->save();
+        return redirect()->back();
+    }
+
 }

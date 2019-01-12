@@ -1,6 +1,6 @@
 <div class="popup" id="popup-login">
     <div class="popup__background"></div>
-    <form action="login" method="POST" class="form" id="login-form">
+    <form action="/login" method="POST" class="form" id="login-form">
         {{csrf_field()}}
         <h3 class="heading-tertiary">Login to your account</h3>
         <div class="form__group">
